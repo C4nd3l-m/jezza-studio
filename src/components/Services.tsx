@@ -4,12 +4,13 @@ import { motion } from 'framer-motion'
 import { Sparkles } from 'lucide-react'
 
 const services = [
-  { id: 1, name: 'Semipermanente', duration: '60 min', price: '$13.000' },
-  { id: 2, name: 'Capping Polygel', duration: '90 min', price: '$18.000' },
-  { id: 3, name: 'Soft Gel', duration: '90 min', price: '$20.000' },
-  { id: 4, name: 'Esculpidas Polygel', duration: '120 min', price: '$25.000' },
+  { id: 1, name: 'Semipermanente', duration: '1:30 hs', price: '$13.000' },
+  { id: 2, name: 'Capping Polygel', duration: '2:30 hs', price: '$18.000' },
+  { id: 3, name: 'Soft Gel', duration: '2:30 hs', price: '$20.000' },
+  { id: 4, name: 'Esculpidas Polygel', duration: '3:00 hs', price: '$25.000' },
   { id: 5, name: 'Retirados de servicios realizados en Jezza Studio', duration: '-', price: '$4.000' },
 ]
+
 
 export default function Services() {
   return (
