@@ -50,7 +50,7 @@ export default function Contact() {
             placeholder="Servicio (ej: Manicura)"
             className="px-6 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary md:col-span-2"
           />
-          <button type="submit" className="flex items-center justify-center gap-2 px-6 py-3 text-white transition rounded-full bg-primary hover:bg-primary-dark" aria-label="Enviar mensaje por WhatsApp">
+          <button type="submit" className="flex items-center justify-center gap-2 px-6 py-3 text-white transition rounded-full bg-green-900 hover:bg-primary-dark" aria-label="Enviar mensaje por WhatsApp">
             <Phone size={16} />
             Enviar por WhatsApp
           </button>

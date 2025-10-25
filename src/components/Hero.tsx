@@ -11,7 +11,7 @@ const makeWhatsAppLink = (service = '') => {
 
 export default function Hero() {
   return (
-    <header className="relative overflow-hidden bg-[url('/bg-soft.jpg')] bg-cover bg-center">
+    <header className="relative overflow-hidden  bg-cover bg-center">
       <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
 
       <div className="relative z-10 grid items-center max-w-6xl grid-cols-1 gap-10 px-6 py-16 mx-auto md:py-20 md:grid-cols-2">
@@ -20,16 +20,17 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <h1 className="mb-2 text-5xl font-heading text-lime-950 sm:text-6xl md:text-7xl">
+          <h1 className="mb-2 text-5xl font-heading text-green-900 sm:text-6xl md:text-7xl">
             Jezza <span className="text-primary">Studio</span>
           </h1>
 
           <h2 className="mb-5 text-xl text-green-950 sm:text-2xl md:text-3xl">
-            Elegancia en cada detalle ✨
+            Belleza alineada con tu esencia ✨
           </h2>
 
           <p className="max-w-md mb-6 text-base font-body text-green-950 sm:text-lg">
-            Un espacio moderno y cálido donde tus manos reflejan tu estilo. Cuidado profesional, acabados premium y atención personalizada.
+            En Jezza Studio creemos que la verdadera belleza nace de la energía que proyectás.
+            Creamos espacios y diseños que conectan con tu esencia, combinando elegancia, calma y poder femenino en cada detalle.
           </p>
 
           <div className="flex flex-col gap-4 sm:flex-row">
@@ -52,19 +53,16 @@ export default function Hero() {
 
           <ul className="flex flex-col gap-3 mt-6 text-sm text-pink-950 sm:flex-row">
             <li className="inline-flex items-center gap-2">
-              <Clock size={16} /> Lun–Vie 10:00–19:00
+              <Clock size={16} /> Lun–Vie Horario de 9:00 am a 20:00 pm
             </li>
             <li className="inline-flex items-center gap-2">
-              <MapPin size={16} /> Calle Falsa 123, Ciudad
+              <MapPin size={16} /> Av San Martín 1608 primer piso local 41
             </li>
           </ul>
 
           <div className="flex gap-6 mt-6">
-            <Link href="https://instagram.com/jezza.studio" target="_blank" rel="noreferrer" className="transition text-green-950 hover:text-primary">
+            <Link href="https://www.instagram.com/jezzastudio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" className="transition text-green-950 hover:text-primary">
               <Instagram size={24} />
-            </Link>
-            <Link href="https://facebook.com/jezza.studio" target="_blank" rel="noreferrer" className="transition text-green-950 hover:text-primary">
-              <Facebook size={24} />
             </Link>
           </div>
         </motion.div>

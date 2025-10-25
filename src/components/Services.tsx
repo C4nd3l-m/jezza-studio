@@ -8,7 +8,7 @@ const services = [
   { id: 2, name: 'Capping Polygel', duration: '90 min', price: '$18.000' },
   { id: 3, name: 'Soft Gel', duration: '90 min', price: '$20.000' },
   { id: 4, name: 'Esculpidas Polygel', duration: '120 min', price: '$25.000' },
-  { id: 5, name: 'Retirados', duration: '-', price: '$4.000' },
+  { id: 5, name: 'Retirados de servicios realizados en Jezza Studio', duration: '-', price: '$4.000' },
 ]
 
 export default function Services() {
@@ -41,7 +41,7 @@ export default function Services() {
                   href={`https://wa.me/549261260921?text=${encodeURIComponent('Quiero reservar ' + s.name)}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-6 py-2 text-white transition rounded-full bg-primary hover:bg-primary-dark"
+                  className="px-6 py-2 text-white transition rounded-full bg-green-900 hover:bg-primary-dark"
                 >
                   Reservar
                 </a>
