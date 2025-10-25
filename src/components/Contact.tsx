@@ -47,7 +47,7 @@ export default function Contact() {
             id="contact-service"
             value={service}
             onChange={e => setService(e.target.value)}
-            placeholder="Servicio (ej: Manicura)"
+            placeholder="Servicio (ej: Capping Polygel)"
             className="px-6 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary md:col-span-2"
           />
           <button type="submit" className="flex items-center justify-center gap-2 px-6 py-3 text-white transition rounded-full bg-green-900 hover:bg-primary-dark" aria-label="Enviar mensaje por WhatsApp">
