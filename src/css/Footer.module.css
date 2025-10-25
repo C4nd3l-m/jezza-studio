@@ -1,0 +1,8 @@
+.footer {
+    background: var(--color-pine);
+    color: var(--color-rosa-claro);
+    padding: 2.25rem 0;
+}
+
+.icon { color: var(--color-rosa-claro); transition: opacity .12s ease; }
+.icon:hover { opacity: .85; }

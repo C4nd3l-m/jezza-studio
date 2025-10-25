@@ -1,0 +1,74 @@
+import { motion } from 'framer-motion'
+import { Phone, Clock, MapPin, Instagram, Facebook } from 'lucide-react'
+import Link from 'next/link'
+
+const WA_NUMBER = '549261626-0921'
+const makeWhatsAppLink = (service = '') => {
+  const base = 'https://wa.me/'
+  const text = `Hola! Quisiera reservar un turno para ${service}`
+  return `${base}${WA_NUMBER}?text=${encodeURIComponent(text)}`
+}
+
+export default function Hero() {
+  return (
+    <header className="relative overflow-hidden bg-[url('/bg-soft.jpg')] bg-cover bg-center">
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
+
+      <div className="relative z-10 grid items-center max-w-6xl grid-cols-1 gap-10 px-6 py-16 mx-auto md:py-20 md:grid-cols-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <h1 className="mb-2 text-5xl font-heading text-lime-950 sm:text-6xl md:text-7xl">
+            Jezza <span className="text-primary">Studio</span>
+          </h1>
+
+          <h2 className="mb-5 text-xl text-green-950 sm:text-2xl md:text-3xl">
+            Elegancia en cada detalle ✨
+          </h2>
+
+          <p className="max-w-md mb-6 text-base font-body text-green-950 sm:text-lg">
+            Un espacio moderno y cálido donde tus manos reflejan tu estilo. Cuidado profesional, acabados premium y atención personalizada.
+          </p>
+
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <a
+              href={makeWhatsAppLink('Manicura Clásica')}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 font-body border shadow-lg text-green-950 px-6 py-3 rounded-full shadow-soft hover:scale-[1.02] hover:bg-primary-dark transition"
+            >
+              <Phone size={18} />
+              Reservar turno
+            </a>
+            <a
+              href="#services"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 transition border rounded-full shadow-lg font-heading text-pine border-primary hover:bg-primary/10"
+            >
+              Ver servicios
+            </a>
+          </div>
+
+          <ul className="flex flex-col gap-3 mt-6 text-sm text-pink-950 sm:flex-row">
+            <li className="inline-flex items-center gap-2">
+              <Clock size={16} /> Lun–Vie 10:00–19:00
+            </li>
+            <li className="inline-flex items-center gap-2">
+              <MapPin size={16} /> Calle Falsa 123, Ciudad
+            </li>
+          </ul>
+
+          <div className="flex gap-6 mt-6">
+            <Link href="https://instagram.com/jezza.studio" target="_blank" rel="noreferrer" className="transition text-green-950 hover:text-primary">
+              <Instagram size={24} />
+            </Link>
+            <Link href="https://facebook.com/jezza.studio" target="_blank" rel="noreferrer" className="transition text-green-950 hover:text-primary">
+              <Facebook size={24} />
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    </header>
+  )
+}

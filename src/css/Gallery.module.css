@@ -1,0 +1,39 @@
+.section { background: rgba(244,114,182,0.08); }
+
+.title { color: var(--color-pine); font-size: 1.25rem; }
+
+.viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.scroller {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.item {
+  min-width: 220px;
+  height: 160px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 6px 20px rgba(15,38,27,0.06);
+  flex-shrink: 0;
+}
+
+.img { width: 100%; height: 100%; object-fit: cover; }
+
+.fadeLeft, .fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  pointer-events: none;
+}
+.fadeLeft { left: 0; background: linear-gradient(90deg, var(--color-beige), transparent); }
+.fadeRight { right: 0; background: linear-gradient(270deg, var(--color-beige), transparent); }

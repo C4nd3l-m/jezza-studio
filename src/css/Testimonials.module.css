@@ -1,0 +1,15 @@
+/* Testimonials.module.css */
+.section { background: var(--color-beige); }
+
+.title { color: var(--color-pine); font-size: 1.25rem; }
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(15,38,27,0.06);
+  border-left: 4px solid var(--color-primary);
+}
+
+.text { color: var(--color-gris); line-height: 1.6; }
+.author { margin-top: 0.75rem; color: var(--color-pine); font-weight: 600; }
