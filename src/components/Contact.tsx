@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Phone } from 'lucide-react'
 
-const WA_NUMBER = '5492616260921'
+const WA_NUMBER = '542616260921'
 
 export default function Contact() {
   const [name, setName] = useState('')

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Phone, Clock, MapPin, Instagram, Facebook } from 'lucide-react'
 import Link from 'next/link'
 
-const WA_NUMBER = '5492616260921'
+const WA_NUMBER = '542616260921'
 const makeWhatsAppLink = (service = '') => {
   const base = 'https://wa.me/'
   const text = `Hola! Quisiera reservar un turno para ${service}`

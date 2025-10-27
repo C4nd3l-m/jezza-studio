@@ -39,7 +39,7 @@ export default function Services() {
               <div className="flex items-center justify-between">
                 <span className="text-xl font-semibold text-primary-dark">{s.price}</span>
                 <a
-                  href={`https://wa.me/5492616260921?text=${encodeURIComponent('Quiero reservar ' + s.name)}`}
+                  href={`https://wa.me/542616260921?text=${encodeURIComponent('Quiero reservar ' + s.name)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="px-6 py-2 text-white transition rounded-full bg-green-900 hover:bg-primary-dark"
