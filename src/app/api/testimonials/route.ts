@@ -1,16 +1,16 @@
 // src/app/api/testimonials/route.ts
 import { NextRequest, NextResponse } from 'next/server'
-import dbConnect from '@/lib/dbConnect'
+import { connectMongo } from '@/lib/mongo'
 import Testimonial from '@/models/Testimonial'
 
 export async function GET() {
-    await dbConnect()
+    await connectMongo()
     const testimonials = await Testimonial.find({}).sort({ createdAt: -1 })
     return NextResponse.json(testimonials)
 }
 
 export async function POST(req: NextRequest) {
-    await dbConnect()
+    await connectMongo()
     const { name, text } = await req.json()
     if (!name || !text) {
         return NextResponse.json({ error: 'Nombre y texto requeridos' }, { status: 400 })
