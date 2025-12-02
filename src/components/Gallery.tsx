@@ -4,22 +4,29 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-const images = [
-  { src: '/1.jpg', alt: 'Manicura lavanda clásica' },
-  { src: '/2.jpg', alt: 'Esmaltado en tonos rosados' },
-  { src: '/3.jpg', alt: 'Uñas con brillo y glitter' },
-  { src: '/4.jpg', alt: 'Manicura francesa moderna' },
-  { src: '/5.jpg', alt: 'Diseño floral en uñas' },
-  { src: '/6.jpg', alt: 'Diseño floral en uñas' },
-  { src: '/7.jpg', alt: 'Diseño floral en uñas' },
-  { src: '/8.jpg', alt: 'Diseño floral en uñas' },
-  { src: '/9.jpg', alt: 'Diseño floral en uñas' },
-  { src: '/10.jpg', alt: 'Diseño floral en uñas' },
-  { src: '/11.jpg', alt: 'Diseño floral en uñas' },
-]
+type GalleryImage = {
+  _id: string
+  src: string
+  alt: string
+}
 
 export default function GalleryCarousel() {
+  const [images, setImages] = useState<GalleryImage[]>([])
   const [reducedMotion, setReducedMotion] = useState(false)
+
+  useEffect(() => {
+    // Fetch gallery images from API
+    fetch('/api/gallery')
+      .then(res => res.json())
+      .then(data => {
+        // Ensure data is an array
+        setImages(Array.isArray(data) ? data : [])
+      })
+      .catch(err => {
+        console.error('Error loading gallery:', err)
+        setImages([])
+      })
+  }, [])
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -31,12 +38,23 @@ export default function GalleryCarousel() {
   }, [])
 
   const animationDuration = 16
-  const loopItems = [...images, ...images]
+  const loopItems = images.length > 0 ? [...images, ...images] : []
+
+  if (images.length === 0) {
+    return (
+      <section className="py-12 bg-[#1a1a1a]">
+        <div className="max-w-5xl px-6 mx-auto">
+          <h3 className="mb-6 text-3xl font-heading text-white">Galería</h3>
+          <p className="text-center text-gray-400">Cargando galería...</p>
+        </div>
+      </section>
+    )
+  }
 
   return (
-    <section className="py-12 bg-beige">
+    <section className="py-12 bg-[#1a1a1a]">
       <div className="max-w-5xl px-6 mx-auto">
-        <h3 className="mb-6 text-3xl font-heading text-primary-dark">Galería</h3>
+        <h3 className="mb-6 text-3xl font-heading text-white">Galería</h3>
 
         <div className="relative overflow-hidden">
           <motion.div
@@ -45,7 +63,7 @@ export default function GalleryCarousel() {
             transition={reducedMotion ? { duration: 0 } : { repeat: Infinity, ease: 'linear', duration: animationDuration }}
           >
             {loopItems.map((img, i) => (
-              <div key={`${img.src}-${i}`} className="flex-shrink-0 w-[48%] sm:w-[30%] md:w-80 md:h-80">
+              <div key={`${img._id}-${i}`} className="flex-shrink-0 w-[48%] sm:w-[30%] md:w-80 md:h-80">
                 <Image
                   src={img.src}
                   alt={img.alt}

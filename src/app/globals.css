@@ -1,26 +1,30 @@
-
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
 :root{
-  --bg:#fffafc;
-  --fg:#0f261b;
+  /* Dark Mode Palette */
+  --bg:#0f1110;
+  --fg:#e0e0e0;
 
+  /* Accents - Keeping pinks but adjusting for dark bg */
   --rosa:#fab9db;
-  --rosa-claro:#fde6ef;
-  --rosa-oscuro:#fab9db;
+  --rosa-claro:#4a2c3a; /* Darker version for backgrounds */
+  --rosa-oscuro:#ffcce6; /* Lighter version for text/icons */
 
-  --pino:#0f261b;
-  --pino-claro:#2f5f48;
-  --pino-oscuro:#08140f;
+  /* Pine/Green - Adjusted for dark mode */
+  --pino:#86efac; /* Lighter green for text */
+  --pino-claro:#1a2e22; /* Dark green for backgrounds */
+  --pino-oscuro:#050b07; /* Very dark green */
 
-  --lila:#7c3aed;
-  --lila-claro:#a78bfa;
-  --lila-oscuro:#5b21b6;
+  /* Purple */
+  --lila:#a78bfa;
+  --lila-claro:#2e2045;
+  --lila-oscuro:#c4b5fd;
 
-  --beige:#f6f0eb;
-  --gris:#6b7280;
+  /* Neutrals */
+  --beige:#1a1a1a; /* Dark gray instead of beige */
+  --gris:#9ca3af;
 
   --font-heading:"Didot",serif;
   --font-body:"Century Gothic",sans-serif;
@@ -42,6 +46,11 @@
 
   --color-beige:var(--beige);
   --color-gris:var(--gris);
+
+  /* Christmas Theme Colors - Adjusted for Dark Mode */
+  --christmas-red:#ff4444;
+  --christmas-green:#44ff44;
+  --christmas-gold:#ffd700;
 }
 
 body{
@@ -58,3 +67,8 @@ h1,h2,h3,h4,h5,h6{ font-family:var(--font-heading); color:var(--color-pine); }
 .text-primary{ color:var(--color-primary) !important; }
 .bg-pine{ background-color:var(--color-pine) !important; }
 .text-pine{ color:var(--color-pine) !important; }
+
+/* Christmas Theme Enhancements */
+.christmas-theme {
+  position: relative;
+}
