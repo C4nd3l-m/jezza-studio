@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Phone, Clock, MapPin, Instagram } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRef } from 'react'
 
 const WA_NUMBER = '542616260921'
@@ -23,83 +24,96 @@ export default function Hero({ isChristmas = false }: HeroProps) {
     offset: ["start start", "end start"]
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
   return (
-    <header ref={ref} className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <header ref={ref} className="relative min-h-screen flex items-center overflow-hidden bg-cream">
       {/* Background with Parallax */}
       <motion.div
         style={{ y, opacity }}
         className="absolute inset-0 z-0"
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105"
-          style={{ backgroundImage: "url('/hero-banner.png')" }}
+        <Image
+          src="/hero-premium.png"
+          alt="Jezza Studio Luxury Manicure"
+          fill
+          priority
+          quality={90}
+          className="object-cover object-center"
+          sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+        {/* Overlay más sofisticado: Cream sólido a transparente suave */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/80 to-transparent mix-blend-normal" />
       </motion.div>
 
-      <div className="relative z-10 w-full max-w-6xl px-6 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 w-full max-w-7xl px-8 mx-auto pt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="max-w-3xl"
           >
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block mb-4 px-4 py-1.5 rounded-full bg-primary-light/50 text-primary-dark text-sm font-medium tracking-wide"
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="inline-flex items-center gap-2 mb-8"
             >
-              Nail Art & Care Studio {isChristmas && '🎄'}
+              <span className="h-px w-12 bg-rose-gold/60"></span>
+              <span className="text-rose-gold tracking-[0.2em] text-xs md:text-sm font-semibold uppercase">
+                Jezza Studio
+              </span>
             </motion.div>
 
-            <h1 className="mb-4 text-5xl font-heading text-white sm:text-6xl md:text-7xl leading-tight">
-              Jezza <span className="text-primary italic">Studio</span>
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-heading text-charcoal mb-8 leading-[0.95] tracking-tight">
+              Belleza alineada <br />
+              <span className="italic font-light text-rose-gold/90">con tu esencia</span>
             </h1>
 
-            <h2 className="mb-6 text-xl text-gray-300 sm:text-2xl font-light tracking-wide">
-              Belleza alineada con tu esencia ✨
-            </h2>
-
-            <p className="max-w-lg mb-8 text-lg text-gray-400 leading-relaxed">
-              En Jezza Studio creemos que la verdadera belleza nace de la energía que proyectás.
-              Creamos espacios y diseños que conectan con tu esencia, combinando elegancia, calma y poder femenino.
+            <p className="text-warm-gray text-lg md:text-xl mb-12 max-w-lg leading-relaxed font-light text-balance">
+              Un espacio donde el cuidado de tus uñas se convierte en un ritual de amor propio.
+              <span className="block mt-2 font-medium text-rose-dust">Arte. Precisión. Calma.</span>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row gap-5 mb-12">
               <a
                 href={makeWhatsAppLink('Manicura Clásica')}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center justify-center gap-2 bg-primary text-black px-8 py-4 rounded-full shadow-lg hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+                className="group inline-flex items-center justify-center gap-3 bg-[#2C2C2C] text-white px-12 py-6 rounded-full shadow-premium-lg hover:shadow-premium-xl hover:-translate-y-1 hover:bg-[#B76E79] transition-all duration-300 font-semibold text-lg"
               >
-                <Phone size={18} className="group-hover:rotate-12 transition-transform" />
-                <span className="font-medium">Reservar turno</span>
+                <Phone size={22} className="group-hover:rotate-12 transition-transform" />
+                <span>Reservar turno</span>
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/20 text-white font-medium hover:bg-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-12 py-6 rounded-full border-2 border-[#2C2C2C] text-[#2C2C2C] font-semibold text-lg hover:bg-[#2C2C2C] hover:text-white transition-all duration-300"
               >
                 Ver servicios
               </a>
             </div>
 
-            <div className="pt-8 border-t border-white/10">
-              <ul className="flex flex-col gap-4 text-sm text-gray-400 sm:flex-row sm:gap-8">
-                <li className="flex items-center gap-2">
-                  <div className="p-2 rounded-full bg-primary-light/30 text-primary-dark">
-                    <Clock size={16} />
+            <div className="pt-10 border-t border-charcoal/10">
+              <ul className="flex flex-col gap-6 text-sm text-warm-gray sm:flex-row sm:gap-10">
+                <li className="flex items-center gap-3">
+                  <div className="p-3 rounded-full bg-rose-dust/20 text-rose-gold">
+                    <Clock size={18} />
                   </div>
-                  <span>Lun–Vie 9:00 - 20:00</span>
+                  <div>
+                    <p className="text-xs text-warm-gray uppercase tracking-wide mb-1">Horarios</p>
+                    <p className="text-charcoal font-medium">Lun–Vie 9:00 - 20:00</p>
+                  </div>
                 </li>
-                <li className="flex items-center gap-2">
-                  <div className="p-2 rounded-full bg-primary-light/30 text-primary-dark">
-                    <MapPin size={16} />
+                <li className="flex items-center gap-3">
+                  <div className="p-3 rounded-full bg-rose-dust/20 text-rose-gold">
+                    <MapPin size={18} />
                   </div>
-                  <span>Av San Martín 1608, Piso 1</span>
+                  <div>
+                    <p className="text-xs text-warm-gray uppercase tracking-wide mb-1">Ubicación</p>
+                    <p className="text-charcoal font-medium">Av San Martín 1608, Piso 1</p>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -112,12 +126,12 @@ export default function Hero({ isChristmas = false }: HeroProps) {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1 }}
-        className="absolute right-6 bottom-10 z-20 hidden md:flex flex-col gap-4"
+        className="absolute right-8 bottom-12 z-20 hidden md:flex flex-col gap-4"
       >
         <Link
           href="https://www.instagram.com/jezzastudio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
           target="_blank"
-          className="p-3 bg-white/10 backdrop-blur shadow-lg rounded-full text-white hover:text-primary hover:scale-110 transition-all"
+          className="p-4 glass-effect subtle-border shadow-premium-sm rounded-full text-charcoal hover:text-rose-gold hover:scale-110 hover:shadow-premium-md transition-all duration-300"
         >
           <Instagram size={24} />
         </Link>

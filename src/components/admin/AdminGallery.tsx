@@ -88,7 +88,7 @@ export default function AdminGallery() {
     if (loading) {
         return (
             <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 animate-spin text-primary-dark" />
+                <Loader2 className="w-8 h-8 animate-spin text-rose-gold" />
             </div>
         )
     }
@@ -96,24 +96,24 @@ export default function AdminGallery() {
     return (
         <div className="space-y-6">
             {/* Upload Form */}
-            <div className="bg-zinc-900 rounded-lg shadow-sm border border-gray-800 p-6">
-                <h2 className="text-lg font-semibold text-white mb-4">
+            <div className="bg-white rounded-2xl shadow-premium-sm subtle-border p-6 md:p-8">
+                <h2 className="text-xl font-heading text-charcoal mb-6">
                     Agregar Imagen a Galería
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-6">
                     <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                        <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
                             Descripción de la imagen (opcional)
                         </label>
                         <input
                             type="text"
                             value={altText}
                             onChange={(e) => setAltText(e.target.value)}
-                            className="w-full px-3 py-2 bg-zinc-800 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent placeholder-gray-500"
+                            className="w-full px-4 py-3 bg-cream/50 border border-gray-200 rounded-xl text-charcoal focus:ring-2 focus:ring-rose-gold/20 focus:border-rose-gold transition outline-none"
                             placeholder="Ej: Diseño floral en uñas"
                         />
                     </div>
-                    <label className="flex items-center justify-center gap-2 px-6 py-4 bg-[var(--color-primary)] text-zinc-900 font-medium rounded-lg hover:bg-[var(--color-primary-dark)] transition cursor-pointer">
+                    <label className="flex items-center justify-center gap-2 px-6 py-4 bg-charcoal text-black font-medium rounded-xl hover:bg-rose-gold transition-colors cursor-pointer shadow-lg">
                         <Upload size={20} />
                         {uploading ? 'Subiendo...' : 'Seleccionar y Subir Imagen'}
                         <input
@@ -128,30 +128,30 @@ export default function AdminGallery() {
             </div>
 
             {/* Gallery Grid */}
-            <div className="bg-zinc-900 rounded-lg shadow-sm border border-gray-800 overflow-hidden">
-                <div className="px-6 py-4 border-b border-gray-800">
-                    <h3 className="text-lg font-semibold text-white">
+            <div className="bg-white rounded-2xl shadow-premium-sm subtle-border overflow-hidden">
+                <div className="px-6 py-4 border-b border-gray-100 bg-cream/30">
+                    <h3 className="text-lg font-heading text-charcoal">
                         Imágenes en Galería ({items.length})
                     </h3>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
                     {items.length === 0 ? (
-                        <div className="col-span-full text-center text-gray-500 py-8">
+                        <div className="col-span-full text-center text-warm-gray py-8">
                             No hay imágenes en la galería
                         </div>
                     ) : (
                         items.map((item) => (
-                            <div key={item._id} className="group relative aspect-square rounded-lg overflow-hidden border border-gray-800 hover:border-gray-600 transition bg-zinc-950">
+                            <div key={item._id} className="group relative aspect-square rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-premium-md transition bg-cream">
                                 <Image
                                     src={item.src}
                                     alt={item.alt}
                                     fill
                                     className="object-cover"
                                 />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition flex items-center justify-center">
+                                <div className="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                                     <button
                                         onClick={() => handleDelete(item._id)}
-                                        className="opacity-0 group-hover:opacity-100 transition px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 flex items-center gap-2"
+                                        className="opacity-0 group-hover:opacity-100 transition px-5 py-2.5 bg-white text-red-600 rounded-xl hover:bg-red-50 flex items-center gap-2 font-medium"
                                     >
                                         <Trash2 size={16} />
                                         Eliminar

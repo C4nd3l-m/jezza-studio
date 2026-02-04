@@ -122,7 +122,7 @@ export default function AdminPromotions() {
     if (loading) {
         return (
             <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 animate-spin text-primary-dark" />
+                <Loader2 className="w-8 h-8 animate-spin text-rose-gold" />
             </div>
         )
     }
@@ -130,34 +130,34 @@ export default function AdminPromotions() {
     return (
         <div className="space-y-6">
             {/* Form */}
-            <div className="bg-zinc-900 rounded-lg shadow-sm border border-gray-800 p-6">
-                <h2 className="text-lg font-semibold text-white mb-4">
+            <div className="bg-white rounded-2xl shadow-premium-sm subtle-border p-6 md:p-8">
+                <h2 className="text-xl font-heading text-charcoal mb-6">
                     {editingId ? 'Editar Promoción' : 'Agregar Promoción'}
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-1">
+                            <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
                                 Título
                             </label>
                             <input
                                 type="text"
                                 value={formData.title}
                                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                                className="w-full px-3 py-2 bg-zinc-800 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent placeholder-gray-500"
+                                className="w-full px-4 py-3 bg-cream/50 border border-gray-200 rounded-xl text-charcoal focus:ring-2 focus:ring-rose-gold/20 focus:border-rose-gold transition outline-none"
                                 placeholder="Ej: 2x1 en Manicura"
                                 required
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-1">
+                            <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
                                 Descripción
                             </label>
                             <input
                                 type="text"
                                 value={formData.description}
                                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                                className="w-full px-3 py-2 bg-zinc-800 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent placeholder-gray-500"
+                                className="w-full px-4 py-3 bg-cream/50 border border-gray-200 rounded-xl text-charcoal focus:ring-2 focus:ring-rose-gold/20 focus:border-rose-gold transition outline-none"
                                 placeholder="Descripción de la promoción"
                                 required
                             />
@@ -166,12 +166,12 @@ export default function AdminPromotions() {
 
                     {/* Image Upload */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                        <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
                             Imagen
                         </label>
                         <div className="flex items-center gap-4">
-                            <label className="flex items-center gap-2 px-4 py-2 bg-zinc-800 text-gray-300 border border-gray-700 rounded-lg hover:bg-zinc-700 transition cursor-pointer">
-                                <Upload size={16} />
+                            <label className="flex items-center gap-2 px-6 py-3 bg-gray-100 text-charcoal border border-gray-200 rounded-xl hover:bg-gray-200 transition cursor-pointer font-medium">
+                                <Upload size={18} />
                                 {uploading ? 'Subiendo...' : 'Subir Imagen'}
                                 <input
                                     type="file"
@@ -182,7 +182,7 @@ export default function AdminPromotions() {
                                 />
                             </label>
                             {formData.image && (
-                                <div className="relative w-20 h-20 rounded-lg overflow-hidden border border-gray-700">
+                                <div className="relative w-20 h-20 rounded-xl overflow-hidden border border-gray-200 shadow-sm">
                                     <Image
                                         src={formData.image}
                                         alt="Preview"
@@ -194,20 +194,20 @@ export default function AdminPromotions() {
                         </div>
                     </div>
 
-                    <div className="flex gap-2">
+                    <div className="flex gap-3">
                         <button
                             type="submit"
                             disabled={!formData.image}
-                            className="flex items-center gap-2 px-4 py-2 bg-[var(--color-primary)] text-zinc-900 font-medium rounded-lg hover:bg-[var(--color-primary-dark)] transition disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="flex items-center gap-2 px-6 py-3 bg-charcoal text-white font-medium rounded-xl hover:bg-rose-gold transition-colors shadow-premium-sm disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            <Plus size={16} />
+                            <Plus size={18} />
                             {editingId ? 'Actualizar' : 'Agregar'}
                         </button>
                         {editingId && (
                             <button
                                 type="button"
                                 onClick={handleCancel}
-                                className="px-4 py-2 bg-zinc-700 text-gray-200 rounded-lg hover:bg-zinc-600 transition"
+                                className="px-6 py-3 bg-gray-100 text-charcoal rounded-xl hover:bg-gray-200 transition-colors"
                             >
                                 Cancelar
                             </button>
@@ -217,40 +217,40 @@ export default function AdminPromotions() {
             </div>
 
             {/* List */}
-            <div className="bg-zinc-900 rounded-lg shadow-sm border border-gray-800 overflow-hidden">
-                <div className="px-6 py-4 border-b border-gray-800">
-                    <h3 className="text-lg font-semibold text-white">Promociones Actuales</h3>
+            <div className="bg-white rounded-2xl shadow-premium-sm subtle-border overflow-hidden">
+                <div className="px-6 py-4 border-b border-gray-100 bg-cream/30">
+                    <h3 className="text-lg font-heading text-charcoal">Promociones Actuales</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
                     {promotions.length === 0 ? (
-                        <div className="col-span-full text-center text-gray-500 py-8">
+                        <div className="col-span-full text-center text-warm-gray py-8">
                             No hay promociones registradas
                         </div>
                     ) : (
                         promotions.map((promo) => (
-                            <div key={promo._id} className="border border-gray-800 rounded-lg overflow-hidden hover:border-gray-600 transition bg-zinc-950">
+                            <div key={promo._id} className="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-premium-md transition bg-white group">
                                 <div className="relative h-48">
                                     <Image
                                         src={promo.image}
                                         alt={promo.title}
                                         fill
-                                        className="object-cover"
+                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                 </div>
-                                <div className="p-4">
-                                    <h4 className="font-medium text-white mb-1">{promo.title}</h4>
-                                    <p className="text-sm text-gray-400 mb-3">{promo.description}</p>
+                                <div className="p-5">
+                                    <h4 className="font-heading text-charcoal text-lg mb-2">{promo.title}</h4>
+                                    <p className="text-sm text-warm-gray mb-4 leading-relaxed">{promo.description}</p>
                                     <div className="flex gap-2">
                                         <button
                                             onClick={() => handleEdit(promo)}
-                                            className="flex-1 flex items-center justify-center gap-1 px-3 py-2 text-sm text-blue-400 bg-blue-900/20 rounded-lg hover:bg-blue-900/40 transition"
+                                            className="flex-1 flex items-center justify-center gap-1 px-3 py-2 text-sm text-white bg-charcoal rounded-lg hover:bg-rose-gold transition-colors"
                                         >
                                             <Edit2 size={14} />
                                             Editar
                                         </button>
                                         <button
                                             onClick={() => handleDelete(promo._id)}
-                                            className="flex-1 flex items-center justify-center gap-1 px-3 py-2 text-sm text-red-400 bg-red-900/20 rounded-lg hover:bg-red-900/40 transition"
+                                            className="flex-1 flex items-center justify-center gap-1 px-3 py-2 text-sm text-rose-dust bg-rose-dust/10 rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors"
                                         >
                                             <Trash2 size={14} />
                                             Eliminar

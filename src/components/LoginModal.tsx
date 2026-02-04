@@ -67,26 +67,26 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
                             {/* Header */}
                             <div className="mb-6 text-center">
-                                <div className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-primary-light/20">
-                                    <Lock className="text-primary-dark" size={32} />
+                                <div className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-rose-dust/20">
+                                    <Lock className="text-rose-gold" size={32} />
                                 </div>
-                                <h2 className="text-2xl font-bold text-gray-900">Acceso Admin</h2>
-                                <p className="mt-2 text-sm text-gray-600">Ingresa tus credenciales</p>
+                                <h2 className="text-2xl font-bold text-charcoal font-heading">Acceso Admin</h2>
+                                <p className="mt-2 text-sm text-warm-gray">Ingresa tus credenciales</p>
                             </div>
 
                             {/* Form */}
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
-                                    <label className="block mb-2 text-sm font-medium text-gray-700">
+                                    <label className="block mb-2 text-sm font-medium text-charcoal uppercase tracking-wide">
                                         Usuario
                                     </label>
                                     <div className="relative">
-                                        <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                                        <User className="absolute left-3 top-1/2 -translate-y-1/2 text-rose-gold" size={20} />
                                         <input
                                             type="text"
                                             value={username}
                                             onChange={(e) => setUsername(e.target.value)}
-                                            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-transparent transition"
+                                            className="w-full pl-10 pr-4 py-3 bg-cream/50 border border-gold-accent/20 rounded-xl focus:ring-2 focus:ring-rose-gold/20 focus:border-rose-gold text-charcoal transition outline-none"
                                             placeholder="admin"
                                             required
                                         />
@@ -94,16 +94,16 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                 </div>
 
                                 <div>
-                                    <label className="block mb-2 text-sm font-medium text-gray-700">
+                                    <label className="block mb-2 text-sm font-medium text-charcoal uppercase tracking-wide">
                                         Contraseña
                                     </label>
                                     <div className="relative">
-                                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-rose-gold" size={20} />
                                         <input
                                             type="password"
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
-                                            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-transparent transition"
+                                            className="w-full pl-10 pr-4 py-3 bg-cream/50 border border-gold-accent/20 rounded-xl focus:ring-2 focus:ring-rose-gold/20 focus:border-rose-gold text-charcoal transition outline-none"
                                             placeholder="••••••••"
                                             required
                                         />
@@ -123,7 +123,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="w-full py-3 text-white font-medium rounded-lg bg-primary-dark hover:bg-primary-light transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full py-3 text-white font-medium rounded-xl bg-charcoal hover:bg-rose-gold transition-colors shadow-premium-sm hover:shadow-premium-md disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     {loading ? 'Ingresando...' : 'Ingresar'}
                                 </button>

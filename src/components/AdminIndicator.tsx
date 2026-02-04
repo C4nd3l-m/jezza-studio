@@ -13,9 +13,9 @@ export default function AdminIndicator() {
         <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="fixed bottom-4 right-4 z-40 flex items-center gap-2 px-4 py-2 bg-primary-dark text-white rounded-full shadow-lg"
+            className="fixed bottom-4 right-4 z-40 flex items-center gap-2 px-4 py-2 bg-charcoal text-white rounded-full shadow-lg border border-gold-accent/20"
         >
-            <Shield size={16} />
+            <Shield size={16} className="text-rose-gold" />
             <span className="text-sm font-medium">Admin</span>
         </motion.div>
     )

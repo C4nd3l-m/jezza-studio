@@ -1,19 +1,22 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import Hero from '../components/Hero'
-import Services from '../components/Services'
-import Promotions from '../components/Promotions'
-import Gallery from '../components/Gallery'
-import Testimonials from '../components/Testimonials'
-import Contact from '../components/Contact'
-import Footer from '../components/Footer'
-import LoginModal from '../components/LoginModal'
-import AdminIndicator from '../components/AdminIndicator'
-import ChristmasSnowfall from '../components/ChristmasSnowfall'
-import ChristmasDecorations from '../components/ChristmasDecorations'
 import { useChristmasTheme } from '../hooks/useChristmasTheme'
-import SecretAdminButton from '../components/SecretAdminButton'
+
+// Lazy load heavy components below the fold
+const Services = dynamic(() => import('../components/Services'), { ssr: true })
+const Promotions = dynamic(() => import('../components/Promotions'), { ssr: true })
+const Gallery = dynamic(() => import('../components/Gallery'), { ssr: false }) // Gallery is heavy on images
+const Testimonials = dynamic(() => import('../components/Testimonials'), { ssr: true })
+const Contact = dynamic(() => import('../components/Contact'), { ssr: true })
+const Footer = dynamic(() => import('../components/Footer'), { ssr: true })
+const LoginModal = dynamic(() => import('../components/LoginModal'), { ssr: false })
+const AdminIndicator = dynamic(() => import('../components/AdminIndicator'), { ssr: false })
+const SecretAdminButton = dynamic(() => import('../components/SecretAdminButton'), { ssr: false })
+const ChristmasSnowfall = dynamic(() => import('../components/ChristmasSnowfall'), { ssr: false })
+const ChristmasDecorations = dynamic(() => import('../components/ChristmasDecorations'), { ssr: false })
 
 export default function Home() {
   const [showLoginModal, setShowLoginModal] = useState(false)
@@ -22,7 +25,7 @@ export default function Home() {
 
 
   return (
-    <main className={`min-h-screen scroll-smooth antialiased bg-gradient-to-b from-[#0a0a0a] via-[#1a1a1a] to-[#0f1110] ${isChristmas ? 'christmas-theme' : ''}`}>
+    <main className={`min-h-screen scroll-smooth antialiased bg-gradient-to-b from-cream via-nude to-beige ${isChristmas ? 'christmas-theme' : ''}`}>
       {/* Christmas Theme Elements */}
       {isChristmas && (
         <>

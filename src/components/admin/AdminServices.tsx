@@ -88,7 +88,7 @@ export default function AdminServices() {
     if (loading) {
         return (
             <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 animate-spin text-primary-dark" />
+                <Loader2 className="w-8 h-8 animate-spin text-rose-gold" />
             </div>
         )
     }
@@ -96,65 +96,65 @@ export default function AdminServices() {
     return (
         <div className="space-y-6">
             {/* Form */}
-            <div className="bg-zinc-900 rounded-lg shadow-sm border border-gray-800 p-6">
-                <h2 className="text-lg font-semibold text-white mb-4">
+            <div className="bg-white rounded-2xl shadow-premium-sm subtle-border p-6 md:p-8">
+                <h2 className="text-xl font-heading text-charcoal mb-6">
                     {editingId ? 'Editar Servicio' : 'Agregar Servicio'}
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-1">
+                            <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
                                 Nombre del Servicio
                             </label>
                             <input
                                 type="text"
                                 value={formData.name}
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                className="w-full px-3 py-2 bg-zinc-800 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent placeholder-gray-500"
+                                className="w-full px-4 py-3 bg-cream/50 border border-gray-200 rounded-xl text-charcoal focus:ring-2 focus:ring-rose-gold/20 focus:border-rose-gold transition outline-none"
                                 placeholder="Ej: Manicura completa"
                                 required
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-1">
+                            <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
                                 Duración
                             </label>
                             <input
                                 type="text"
                                 value={formData.duration}
                                 onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-                                className="w-full px-3 py-2 bg-zinc-800 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent placeholder-gray-500"
+                                className="w-full px-4 py-3 bg-cream/50 border border-gray-200 rounded-xl text-charcoal focus:ring-2 focus:ring-rose-gold/20 focus:border-rose-gold transition outline-none"
                                 placeholder="Ej: 60 min"
                                 required
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-1">
+                            <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
                                 Precio
                             </label>
                             <input
                                 type="text"
                                 value={formData.price}
                                 onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                                className="w-full px-3 py-2 bg-zinc-800 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent placeholder-gray-500"
+                                className="w-full px-4 py-3 bg-cream/50 border border-gray-200 rounded-xl text-charcoal focus:ring-2 focus:ring-rose-gold/20 focus:border-rose-gold transition outline-none"
                                 placeholder="Ej: $15.000"
                                 required
                             />
                         </div>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-3">
                         <button
                             type="submit"
-                            className="flex items-center gap-2 px-4 py-2 bg-[var(--color-primary)] text-zinc-900 font-medium rounded-lg hover:bg-[var(--color-primary-dark)] transition"
+                            className="flex items-center gap-2 px-6 py-3 bg-charcoal text-white font-medium rounded-xl hover:bg-rose-gold transition-colors shadow-premium-sm"
                         >
-                            <Plus size={16} />
+                            <Plus size={18} />
                             {editingId ? 'Actualizar' : 'Agregar'}
                         </button>
                         {editingId && (
                             <button
                                 type="button"
                                 onClick={handleCancel}
-                                className="px-4 py-2 bg-zinc-700 text-gray-200 rounded-lg hover:bg-zinc-600 transition"
+                                className="px-6 py-3 bg-gray-100 text-charcoal rounded-xl hover:bg-gray-200 transition-colors"
                             >
                                 Cancelar
                             </button>
@@ -164,36 +164,38 @@ export default function AdminServices() {
             </div>
 
             {/* List */}
-            <div className="bg-zinc-900 rounded-lg shadow-sm border border-gray-800 overflow-hidden">
-                <div className="px-6 py-4 border-b border-gray-800">
-                    <h3 className="text-lg font-semibold text-white">Servicios Actuales</h3>
+            <div className="bg-white rounded-2xl shadow-premium-sm subtle-border overflow-hidden">
+                <div className="px-6 py-4 border-b border-gray-100 bg-cream/30">
+                    <h3 className="text-lg font-heading text-charcoal">Servicios Actuales</h3>
                 </div>
-                <div className="divide-y divide-gray-800">
+                <div className="divide-y divide-gray-100">
                     {services.length === 0 ? (
-                        <div className="px-6 py-8 text-center text-gray-500">
+                        <div className="px-6 py-12 text-center text-warm-gray">
                             No hay servicios registrados
                         </div>
                     ) : (
                         services.map((service) => (
-                            <div key={service._id} className="px-6 py-4 flex items-center justify-between hover:bg-zinc-800/50 transition">
+                            <div key={service._id} className="px-6 py-4 flex items-center justify-between hover:bg-cream/50 transition shadow-lg">
                                 <div className="flex-1">
-                                    <h4 className="font-medium text-white">{service.name}</h4>
-                                    <p className="text-sm text-gray-400">
-                                        {service.duration} • {service.price}
+                                    <h4 className="font-medium text-charcoal text-lg">{service.name}</h4>
+                                    <p className="text-sm text-rose-dust font-medium mt-1">
+                                        {service.duration} • <span className="text-charcoal">{service.price}</span>
                                     </p>
                                 </div>
                                 <div className="flex gap-2">
                                     <button
                                         onClick={() => handleEdit(service)}
-                                        className="p-2 text-blue-400 hover:bg-blue-900/30 rounded-lg transition"
+                                        className="p-2 text-charcoal hover:bg-gray-100 rounded-lg transition"
+                                        title="Editar"
                                     >
-                                        <Edit2 size={16} />
+                                        <Edit2 size={18} />
                                     </button>
                                     <button
                                         onClick={() => handleDelete(service._id)}
-                                        className="p-2 text-red-400 hover:bg-red-900/30 rounded-lg transition"
+                                        className="p-2 text-rose-dust hover:text-red-600 hover:bg-red-50 rounded-lg transition"
+                                        title="Eliminar"
                                     >
-                                        <Trash2 size={16} />
+                                        <Trash2 size={18} />
                                     </button>
                                 </div>
                             </div>
