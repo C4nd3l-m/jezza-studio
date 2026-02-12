@@ -24,7 +24,7 @@ export default function Hero({ isChristmas = false }: HeroProps) {
     offset: ["start start", "end start"]
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
   return (
@@ -32,19 +32,19 @@ export default function Hero({ isChristmas = false }: HeroProps) {
       {/* Background with Parallax */}
       <motion.div
         style={{ y, opacity }}
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 overflow-hidden bg-cream"
       >
-        <Image
-          src="/hero-premium.png"
-          alt="Jezza Studio Luxury Manicure"
-          fill
-          priority
-          quality={90}
-          className="object-cover object-center"
-          sizes="100vw"
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backgroundImage: 'url(/banner.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
         />
         {/* Overlay más sofisticado: Cream sólido a transparente suave */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/80 to-transparent mix-blend-normal" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cream/90 via-cream/40 to-transparent mix-blend-normal" />
       </motion.div>
 
       <div className="relative z-10 w-full max-w-7xl px-8 mx-auto pt-20">
